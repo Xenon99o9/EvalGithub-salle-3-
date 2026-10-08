@@ -9,9 +9,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+       
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         body.registration-page {
-            min-width: 1120px;
+            /* Retrait de min-width: 1120px */
             min-height: 100vh;
+            margin: 0;
             background:
                 radial-gradient(circle at 12% 88%, rgba(185, 212, 123, 0.25), transparent 22rem),
                 #f4f5ef;
@@ -26,21 +32,31 @@
         .registration-header .navbar {
             min-height: 76px;
             font-family: "Trebuchet MS", Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
+        /* Conteneur principal fluide */
         .registration-layout {
             display: grid;
-            width: 1040px;
-            grid-template-columns: 390px 610px;
+            width: 100%;
+            max-width: 1040px;
+            grid-template-columns: 390px 1fr;
             gap: 40px;
-            margin: 54px auto 64px;
+            margin: 40px auto 60px;
+            padding: 0 20px;
             align-items: stretch;
         }
 
+        /* Colonne de gauche (bannière verte) */
         .registration-intro {
             position: relative;
             display: flex;
-            min-height: 650px;
+            min-height: 550px;
             flex-direction: column;
             justify-content: space-between;
             overflow: hidden;
@@ -58,6 +74,7 @@
             border: 1px solid rgba(25, 40, 34, 0.22);
             border-radius: 50%;
             content: "";
+            pointer-events: none;
         }
 
         .registration-kicker {
@@ -74,9 +91,9 @@
             z-index: 1;
             margin: 20px 0 16px;
             font-family: Georgia, "Times New Roman", serif;
-            font-size: 48px;
+            font-size: clamp(32px, 5vw, 48px);
             font-weight: 400;
-            line-height: 1.08;
+            line-height: 1.1;
         }
 
         .registration-intro h1 span {
@@ -97,7 +114,7 @@
         .registration-note {
             position: relative;
             z-index: 1;
-            width: 248px;
+            max-width: 280px;
             padding-top: 18px;
             border-top: 1px solid rgba(25, 40, 34, 0.25);
             color: #435244;
@@ -105,6 +122,7 @@
             line-height: 1.6;
         }
 
+        /* Colonne de droite (formulaire) */
         .registration-card {
             padding: 42px 48px 34px;
             border: 1px solid #e0e4dc;
@@ -116,7 +134,7 @@
         .registration-card h2 {
             margin: 0 0 8px;
             font-family: Georgia, "Times New Roman", serif;
-            font-size: 34px;
+            font-size: clamp(26px, 4vw, 34px);
             font-weight: 400;
         }
 
@@ -206,6 +224,7 @@
             height: 16px;
             margin: 0;
             accent-color: #26372e;
+            flex-shrink: 0;
         }
 
         .registration-form .label-text a,
@@ -279,6 +298,45 @@
 
         a:focus-visible {
             outline-offset: 3px;
+        }
+
+        /* MEDIA QUERIES (RESPONSIVE) */
+
+        /* Tablettes et écrans intermédiaires  */
+        @media (max-width: 900px) {
+            .registration-layout {
+                grid-template-columns: 1fr; /* Passage sur 1 seule colonne */
+                max-width: 580px;
+                margin: 28px auto 48px;
+                gap: 24px;
+            }
+
+            .registration-intro {
+                min-height: auto;
+                gap: 24px;
+                padding: 32px 28px;
+            }
+
+            .registration-intro-copy,
+            .registration-note {
+                max-width: 100%;
+            }
+        }
+
+        /* Mobiles  */
+        @media (max-width: 576px) {
+            .registration-layout {
+                padding: 0 14px;
+                margin: 16px auto 32px;
+            }
+
+            .registration-card {
+                padding: 28px 20px 24px;
+            }
+
+            .registration-intro {
+                padding: 24px 20px;
+            }
         }
     </style>
 </head>
