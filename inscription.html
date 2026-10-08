@@ -8,89 +8,366 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body.registration-page {
+            min-width: 1120px;
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 12% 88%, rgba(185, 212, 123, 0.25), transparent 22rem),
+                #f4f5ef;
+            font-family: "Inter", "Trebuchet MS", Arial, sans-serif;
+        }
+
+        .registration-header {
+            border-bottom: 1px solid #263b4e;
+            background: #2c3e50;
+        }
+
+        .registration-header .navbar {
+            min-height: 76px;
+            font-family: "Trebuchet MS", Arial, sans-serif;
+        }
+
+        .registration-layout {
+            display: grid;
+            width: 1040px;
+            grid-template-columns: 390px 610px;
+            gap: 40px;
+            margin: 54px auto 64px;
+            align-items: stretch;
+        }
+
+        .registration-intro {
+            position: relative;
+            display: flex;
+            min-height: 650px;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            padding: 42px 38px;
+            border-radius: 8px;
+            background: #b9d47b;
+        }
+
+        .registration-intro::after {
+            position: absolute;
+            right: -85px;
+            bottom: 95px;
+            width: 270px;
+            height: 270px;
+            border: 1px solid rgba(25, 40, 34, 0.22);
+            border-radius: 50%;
+            content: "";
+        }
+
+        .registration-kicker {
+            margin: 0;
+            color: #435244;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+        }
+
+        .registration-intro h1 {
+            position: relative;
+            z-index: 1;
+            margin: 20px 0 16px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 48px;
+            font-weight: 400;
+            line-height: 1.08;
+        }
+
+        .registration-intro h1 span {
+            color: #d45a39;
+            font-style: italic;
+        }
+
+        .registration-intro-copy {
+            position: relative;
+            z-index: 1;
+            max-width: 290px;
+            margin: 0;
+            color: #435244;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .registration-note {
+            position: relative;
+            z-index: 1;
+            width: 248px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(25, 40, 34, 0.25);
+            color: #435244;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .registration-card {
+            padding: 42px 48px 34px;
+            border: 1px solid #e0e4dc;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 18px 55px rgba(25, 40, 34, 0.08);
+        }
+
+        .registration-card h2 {
+            margin: 0 0 8px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 34px;
+            font-weight: 400;
+        }
+
+        .registration-card > p {
+            margin: 0 0 28px;
+            color: #69746c;
+            font-size: 13px;
+        }
+
+        .registration-form .form-group {
+            margin-bottom: 17px;
+        }
+
+        .registration-form .form-group > label {
+            display: block;
+            margin-bottom: 7px;
+            color: #26372e;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .registration-form .input-wrapper {
+            position: relative;
+        }
+
+        .registration-form input[type="text"],
+        .registration-form input[type="email"],
+        .registration-form input[type="password"] {
+            width: 100%;
+            height: 46px;
+            padding: 0 14px;
+            border: 1px solid #d9ded5;
+            border-radius: 4px;
+            outline: none;
+            background: #fbfcf9;
+            color: #192822;
+            font: inherit;
+            font-size: 13px;
+            transition: border-color 160ms ease, box-shadow 160ms ease;
+        }
+
+        .registration-form input::placeholder {
+            color: #a0a9a1;
+        }
+
+        .registration-form input:focus {
+            border-color: #719264;
+            box-shadow: 0 0 0 3px rgba(113, 146, 100, 0.15);
+        }
+
+        .registration-form .btn-toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            display: grid;
+            width: 30px;
+            height: 30px;
+            place-items: center;
+            transform: translateY(-50%);
+            border: 0;
+            background: transparent;
+            color: #69746c;
+            cursor: pointer;
+        }
+
+        .registration-form .eye-icon {
+            width: 18px;
+            height: 18px;
+        }
+
+        .registration-form .checkbox-group {
+            margin-top: 22px;
+            margin-bottom: 21px;
+        }
+
+        .registration-form .custom-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #515d55;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .registration-form .custom-checkbox input {
+            width: 16px;
+            height: 16px;
+            margin: 0;
+            accent-color: #26372e;
+        }
+
+        .registration-form .label-text a,
+        .registration-footer a {
+            color: #315841;
+            font-weight: 700;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+
+        .registration-form .error-msg {
+            display: block;
+            min-height: 0;
+            color: #b34335;
+            font-size: 11px;
+        }
+
+        .registration-form .btn-submit {
+            display: flex;
+            width: 100%;
+            height: 48px;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border: 0;
+            border-radius: 4px;
+            background: #192822;
+            color: #fff;
+            font: inherit;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 160ms ease, transform 160ms ease;
+        }
+
+        .registration-form .btn-submit:hover {
+            transform: translateY(-1px);
+            background: #d45a39;
+        }
+
+        .registration-form .btn-submit:focus-visible,
+        .registration-form .btn-toggle-password:focus-visible,
+        .registration-form a:focus-visible,
+        .registration-footer a:focus-visible {
+            outline: 3px solid #d45a39;
+            outline-offset: 3px;
+        }
+
+        .registration-success {
+            margin-top: 16px;
+            padding: 12px 14px;
+            border: 1px solid #b9d47b;
+            border-radius: 4px;
+            background: #f2f7e9;
+            color: #315841;
+            font-size: 12px;
+        }
+
+        .registration-footer {
+            margin: 24px 0 0;
+            padding-top: 18px;
+            border-top: 1px solid #e8ebe5;
+            color: #69746c;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .registration-footer p {
+            margin: 0;
+        }
+
+        a:focus-visible {
+            outline-offset: 3px;
+        }
+    </style>
 </head>
-<body>
-    <div class="card-container">
-        <header class="header">
-            <nav class="navbar">
-                <div class="logo">BDE Asso</div>
-                <ul class="nav-links">
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="event.html">Événements</a></li>
-                    <li><a href="inscription.html">S'inscrire</a></li>
-                </ul>
-            </nav>
-            
-        </header>
-        <h2>Créer un compte</h2>
-        <p>Rejoignez-nous en quelques secondes</p>
+<body class="registration-page">
+    <header class="registration-header">
+        <nav class="navbar">
+            <div class="logo">BDE Asso</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="event.html">Événements</a></li>
+                <li><a href="inscription.html" aria-current="page">S'inscrire</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <form id="signupForm" novalidate>
-            <!-- Nom complet -->
-            <div class="form-group">
-                <label for="fullname">Nom complet</label>
-                <div class="input-wrapper">
-                    <input type="text" id="fullname" name="fullname" placeholder="ex. " autocomplete="name">
-                </div>
-                <small class="error-msg" id="fullnameError"></small>
+    <main class="registration-layout">
+        <section class="registration-intro" aria-labelledby="registration-title">
+            <div>
+                <p class="registration-kicker">BDE Asso · Vie étudiante</p>
+                <h1 id="registration-title">Fais partie de <span>l’aventure.</span></h1>
+                <p class="registration-intro-copy">Rejoins une communauté qui imagine des événements, des rencontres et de beaux souvenirs tout au long de l’année. Soirées, ateliers et sorties : il y en a pour tous les goûts.</p>
             </div>
+            <p class="registration-note">Une inscription, plein de façons de participer. On est ravis de t’accueillir parmi nous.</p>
+        </section>
 
-            <!-- Email -->
-            <div class="form-group">
-                <label for="email">Adresse email</label>
-                <div class="input-wrapper">
-                    <input type="email" id="email" name="email" placeholder="nom@exemple.com" autocomplete="email">
-                </div>
-                <small class="error-msg" id="emailError"></small>
-            </div>
+        <section class="registration-card" aria-labelledby="form-title">
+            <h2 id="form-title">Créer un compte</h2>
+            <p>Rejoignez-nous en quelques secondes et restez au courant des prochains événements de l’association.</p>
 
-            <!-- Mot de passe -->
-            <div class="form-group">
-                <label for="password">Mot de passe</label>
-                <div class="input-wrapper">
-                    <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="new-password">
-                    <button type="button" class="btn-toggle-password" id="togglePassword" aria-label="Afficher ou masquer le mot de passe">
-                        <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                            <circle cx="12" cy="12" r="3"></circle>
-                        </svg>
-                    </button>
+            <form id="signupForm" class="registration-form" novalidate>
+                <div class="form-group">
+                    <label for="fullname">Nom complet</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="fullname" name="fullname" placeholder="ex. Camille Martin" autocomplete="name">
+                    </div>
+                    <small class="error-msg" id="fullnameError"></small>
                 </div>
 
-            <!-- Confirmation mot de passe -->
-            <div class="form-group">
-                <label for="confirmPassword">Confirmer le mot de passe</label>
-                <div class="input-wrapper">
-                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="••••••••" autocomplete="new-password">
+                <div class="form-group">
+                    <label for="email">Adresse email</label>
+                    <div class="input-wrapper">
+                        <input type="email" id="email" name="email" placeholder="nom@exemple.com" autocomplete="email">
+                    </div>
+                    <small class="error-msg" id="emailError"></small>
                 </div>
-                <small class="error-msg" id="confirmPasswordError"></small>
+
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="new-password">
+                        <button type="button" class="btn-toggle-password" id="togglePassword" aria-label="Afficher ou masquer le mot de passe">
+                            <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmer le mot de passe</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="••••••••" autocomplete="new-password">
+                    </div>
+                    <small class="error-msg" id="confirmPasswordError"></small>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="custom-checkbox" for="terms">
+                        <input type="checkbox" id="terms" name="terms">
+                        <span class="label-text">J'accepte les <a href="#">conditions générales</a></span>
+                    </label>
+                    <small class="error-msg" id="termsError"></small>
+                </div>
+
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    <span class="btn-text">S'inscrire</span>
+                    <span class="btn-loader" style="display: none;"></span>
+                </button>
+            </form>
+
+            <div id="alertSuccess" class="registration-success" style="display: none;">
+                <span>Inscription validée avec succès !</span>
             </div>
 
-            <!-- CGU -->
-            <div class="form-group checkbox-group">
-                <label class="custom-checkbox">
-                    <input type="checkbox" id="terms" name="terms">
-                    <span class="checkmark"></span>
-                    <span class="label-text">J'accepte les <a href="#">conditions générales</a></span>
-                </label>
-                <small class="error-msg" id="termsError"></small>
-            </div>
-
-            <button type="submit" class="btn-submit" id="submitBtn">
-                <span class="btn-text">S'inscrire</span>
-                <span class="btn-loader" style="display: none;"></span>
-            </button>
-        </form>
-
-        <div id="alertSuccess" class="alert-success" style="display: none;">
-            <span>Inscription validée avec succès !</span>
-        </div>
-
-        <footer class="footer">
-            <p>Déjà inscrit ? <a href="#">Se connecter</a></p>
-        </footer>
-    </div>
-
-    <script src="index.js"></script>
+            <footer class="registration-footer">
+                <p>Déjà inscrit ? <a href="#">Se connecter</a></p>
+            </footer>
+        </section>
+    </main>
 </body>
 </html>
