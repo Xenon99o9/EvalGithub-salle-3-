@@ -342,7 +342,6 @@ a:focus-visible {
 .signup > p:not(.eyebrow) {
 	margin: 0 auto 22px;
 	font-size: 14px;
-	line-height: 1.6;
 }
 
 .site-footer {
