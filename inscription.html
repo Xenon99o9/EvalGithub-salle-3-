@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un compte - Inscription</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="card-container">
+        <header class="header">
+            <h2>Créer un compte</h2>
+            <p>Rejoignez-nous en quelques secondes</p>
+        </header>
+
+        <form id="signupForm" novalidate>
+            <!-- Nom complet -->
+            <div class="form-group">
+                <label for="fullname">Nom complet</label>
+                <div class="input-wrapper">
+                    <input type="text" id="fullname" name="fullname" placeholder="ex. " autocomplete="name">
+                </div>
+                <small class="error-msg" id="fullnameError"></small>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Adresse email</label>
+                <div class="input-wrapper">
+                    <input type="email" id="email" name="email" placeholder="nom@exemple.com" autocomplete="email">
+                </div>
+                <small class="error-msg" id="emailError"></small>
+            </div>
+
+            <!-- Mot de passe -->
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <div class="input-wrapper">
+                    <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="new-password">
+                    <button type="button" class="btn-toggle-password" id="togglePassword" aria-label="Afficher ou masquer le mot de passe">
+                        <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </button>
+                </div>
+
+            <!-- Confirmation mot de passe -->
+            <div class="form-group">
+                <label for="confirmPassword">Confirmer le mot de passe</label>
+                <div class="input-wrapper">
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="••••••••" autocomplete="new-password">
+                </div>
+                <small class="error-msg" id="confirmPasswordError"></small>
+            </div>
+
+            <!-- CGU -->
+            <div class="form-group checkbox-group">
+                <label class="custom-checkbox">
+                    <input type="checkbox" id="terms" name="terms">
+                    <span class="checkmark"></span>
+                    <span class="label-text">J'accepte les <a href="#">conditions générales</a></span>
+                </label>
+                <small class="error-msg" id="termsError"></small>
+            </div>
+
+            <button type="submit" class="btn-submit" id="submitBtn">
+                <span class="btn-text">S'inscrire</span>
+                <span class="btn-loader" style="display: none;"></span>
+            </button>
+        </form>
+
+        <div id="alertSuccess" class="alert-success" style="display: none;">
+            <span>Inscription validée avec succès !</span>
+        </div>
+
+        <footer class="footer">
+            <p>Déjà inscrit ? <a href="#">Se connecter</a></p>
+        </footer>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
