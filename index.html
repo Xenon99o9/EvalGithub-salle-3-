@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asso des Étudiants</title>
+    <title>BDE Asso - La vie étudiante</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,8 +12,8 @@
         <nav class="navbar">
             <div class="logo">BDE Asso</div>
             <ul class="nav-links">
-                <li><a href="#presentation">Accueil</a></li>
-                <li><a href="#evenements">Événements</a></li>
+                <li><a href="index.html" aria-current="page">Accueil</a></li>
+                <li><a href="event.html">Événements</a></li>
                 <li><a href="inscription.html">S'inscrire</a></li>
             </ul>
         </nav>
@@ -21,14 +21,17 @@
 
 
     <main>
-        <section id="presentation" class="hero">
-            <h1>Bienvenue dans notre Association !</h1>
-            <p>Nous organisons les meilleurs événements pour rythmer votre vie étudiante. Rejoignez-nous, participez à nos soirées, ateliers et sorties.</p>
+        <section id="presentation" class="intro" aria-labelledby="page-title">
+            <p class="eyebrow"><span></span> Rencontres · Fêtes · Bons moments</p>
+            <h1 id="page-title">La vie étudiante, en plus <span>vivante.</span></h1>
+            <p class="intro-copy">Bienvenue au BDE Asso ! On imagine des soirées, des ateliers et des sorties pour se rencontrer, partager de bons moments et profiter pleinement de l’année.</p>
+            <a class="text-link" href="event.html">Découvrir les événements <span aria-hidden="true">→</span></a>
+            <div class="intro-stamp" aria-label="Des souvenirs à créer ensemble">
+                DES SOUVENIRS<br>À CRÉER<br>ENSEMBLE
+                <span class="stamp-star" aria-hidden="true">✳</span>
+            </div>
         </section>
-        
-        <!-- Les étudiants 2 et 3 ajouteront leur code en dessous -->
-        <div id="evenements"></div>
-        <div id="inscription"></div>
+
     </main>
 
 </body>
