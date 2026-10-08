@@ -4,7 +4,7 @@ const messageBox = document.getElementById('messageConfirmation');
 form.addEventListener('submit', function (event) {
   event.preventDefault(); // Empêche le rechargement de la page
 
-  // Récupération des données saisies
+  // Récupération des données saisies par l'utilisateur
   const donnees = {
     nom: document.getElementById('nom').value.trim(),
     email: document.getElementById('email').value.trim(),
@@ -12,7 +12,7 @@ form.addEventListener('submit', function (event) {
     evenement: document.getElementById('evenement').value
   };
 
-  // Affichage dans la console (prêt pour un envoi API/Backend)
+  // Affichage du message de comfirmation de la console  
   console.log('Inscription enregistrée :', donnees);
 
   // Message de confirmation pour l'utilisateur
