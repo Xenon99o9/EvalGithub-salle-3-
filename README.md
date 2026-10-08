@@ -54,10 +54,10 @@ Question :
     -Car la correction sur prod doit être mit sur develop pour éviter que l'erreur se répéte dans les prochains developement(Liam)
 
 6. Quel est le rôle d’une branche de release ?
-    -
+    -Le rôle d’une branche release est de servir de passerelle de la branche develop vers la branche de production (main). Elle permet de faire les dernières vérifications et de s’assurer que tout fonctionne avant la mise en production. (Mathis)
 
 7. Comment GitHub Projects et les Issues facilitent-ils organisation et traçabilité ?
-    -
+    -GitHub Projects permet d’une part d’avoir une vue d’ensemble sur le projet grâce au dashboard ou la roadmap par exemple. De plus, chaque commit peut être associé à une issue dans le projet ce qui permet de savoir qui à fait quoi avec précision. Aussi d’un point de vue organisationnel, chaque tâche peut être triée, délimitée dans le temps, et potentiellement attachée à un milestones - donc un groupe de tâche - permettant de mieux structurer le projet. (Mathis)
 
 8. Comment retrouver l’origine d’une modification dans l’historique GitHub ?
-    -
+    -Il y a trois possibilités : soit en passant par l’outils Blame sur un fichier en particulier pour vérifier les modifications d’une ligne ; soit via le bouton history qui affiche l’historique complet du fichier ; soit via une numéro de pull resquest ou dans la liste des commit (Mathis).
