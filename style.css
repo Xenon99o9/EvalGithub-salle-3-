@@ -494,8 +494,6 @@ a:focus-visible {
 	.event {
 		grid-template-columns: 56px minmax(0, 1fr);
 		gap: 13px;
-		/* ERREUR MOBILE volontaire : cette largeur fait déborder les cartes. */
-		min-width: 520px;
 	}
 
 	.event-date {
