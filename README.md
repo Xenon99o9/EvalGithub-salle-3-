@@ -29,14 +29,10 @@ difficulté
 
 
 | Pseudonyme GitHub | Nom | Prénom | Rôle |
-
 | :--- | :--- | :--- | :--- |
-
-| @Xenon99o9  | Paulus | Liam | Étudiant 1 (Présentation & Navigation) |
-
-| @Rathallist | Greuzat  | Raphael | Étudiant 2 (Catalogue Événements) |
-
-| @mathis-aly  | Lamartiniere  | Mathis | Étudiant 3 (Inscription & Coordonnateur) |
+| @Xenon99o9 | Paulus | Liam | Étudiant 1 (Présentation & Navigation) |
+| @Rathallist | Greuzat | Raphael | Étudiant 2 (Catalogue Événements) |
+| @mathis-aly | Lamartiniere | Mathis | Étudiant 3 (Inscription & Coordonnateur) |
  
 
 
